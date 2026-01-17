@@ -10,7 +10,7 @@
 - <b>Resistive Circuit Solver (Java)</b>
   - [Software Systems](https://github.com/joshmadakor1/4chan-Image-Analysis-Middleware-C964) 
 - <b>TMU Winter Design</b>
-  - [Communication in the Engineering Profession](https://github.com/joshmadakor1/Sentinel-Lab)
+  - [Communication in the Engineering Profession](https://github.com/kslubana101/TMUPROJ/blob/main/README.md)
 
 
 <h2> 🤳 Connect with me:</h2>
