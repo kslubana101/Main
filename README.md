@@ -22,7 +22,7 @@
 
 ## 🛠️ Technical Skills
 
-- **Languages:** C, Java, C#, Java, Python.
+- **Languages:** C, C#, Java, Python.
 - **Concepts:** Data Structures & Algorithms, Object-Oriented Programming, Finite State Machines, Cloud Computing.
 - **Tools:** Git/GitHub, Linux/Unix Shell, Microsoft Office, Azure.
 
