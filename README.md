@@ -23,9 +23,14 @@
 ## 🛠️ Technical Skills
 
 - **Languages:** C, Java, C#, Java, Python.
-- **Concepts:** Data Structures & Algorithms, Object-Oriented Programming, Finite State Machines.
-- **Tools:** Git/GitHub, Linux (Sun Workstations), Unix Shell, Microsoft Office.
+- **Concepts:** Data Structures & Algorithms, Object-Oriented Programming, Finite State Machines, Cloud Computing.
+- **Tools:** Git/GitHub, Linux (Sun Workstations), Unix Shell, Microsoft Office, Azure.
 
+---
+
+## 💻 Certification 
+
+- **[Mircrosoft Certified: Azure Fundamentals](https://learn.microsoft.com/api/credentials/share/en-us/KarandeepLubana-0235/A66C6D464FC1728D?sharingId=72E2A1F7747ED07F)**
 ---
 
 ## 🤳 Connect with me
