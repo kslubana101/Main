@@ -7,8 +7,8 @@
 
 - <b>State Machine & Algorithms (C#)</b>
   - [Data Structures & Algorithms](https://github.com/joshmadakor1/Algorithms-Practice)
-- <b>Resistive Circuit Solver (Java)</b>
-  - [Software Systems](https://github.com/joshmadakor1/4chan-Image-Analysis-Middleware-C964) 
+- <b>Logistics Pricing System (Java)</b>
+  - [Software Systems](https://github.com/kslubana101/RCS-Java-/blob/main/README.md) 
 - <b>TMU Winter Design</b>
   - [Communication in the Engineering Profession](https://github.com/kslubana101/TMUPROJ/blob/main/README.md)
 
