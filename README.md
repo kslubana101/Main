@@ -6,7 +6,7 @@
 <h2>👨‍💻 Academic Projects:</h2>
 
 - <b>State Machine & Algorithms (C#)</b>
-  - [Data Structures & Algorithms](https://github.com/joshmadakor1/Algorithms-Practice)
+  - [Data Structures & Algorithms](https://github.com/kslubana101/stateM/blob/main/README.md)
 - <b>Logistics Pricing System (Java)</b>
   - [Software Systems](https://github.com/kslubana101/RCS-Java-/blob/main/README.md) 
 - <b>TMU Winter Design</b>
