@@ -1,41 +1,46 @@
- <h1>Hi, I'm Karandeep! 
-  
-<a href="https://github.com/your-username" target="_blank">Computer Engineering Student</a>
+# Hi, I'm Karandeep! 👋
+### Computer Engineering Student at Toronto Metropolitan University
 
+---
 
-<h2>👨‍💻 Academic Projects:</h2>
+## 👨‍💻 Academic Projects
 
-- <b>State Machine & Algorithms (C#)</b>
-  - [Data Structures & Algorithms](https://github.com/kslubana101/stateM/blob/main/README.md)
-- <b>Logistics Pricing System (Java)</b>
-  - [Software Systems](https://github.com/kslubana101/RCS-Java-/blob/main/README.md) 
-- <b>TMU Winter Design</b>
-  - [Communication in the Engineering Profession](https://github.com/kslubana101/TMUPROJ/blob/main/README.md)
+### [State Machine & Algorithms](https://github.com/kslubana101/stateM) 
+[cite_start]*Developed for COE428 – Engineering Algorithms and Data Structures* [cite: 1]
+- [cite_start]**Language:** C [cite: 19]
+- [cite_start]**Key Features:** Implemented a Finite State Machine (FSM) with reachability analysis and dynamic state reconfiguration[cite: 25, 32].
+- [cite_start]**Skills:** Graph Theory, Memory Management, and Command-Line Interfaces in C.
 
+### [Logistics Pricing System](https://github.com/kslubana101/RCS-Java-)
+*Developed for COE318 – Software Systems*
+- **Language:** Java
+- **Key Features:** Built a modular shipping cost calculator using Object-Oriented Programming (OOP) principles like Inheritance and Polymorphism.
+- **Skills:** Exception handling, Input validation, and Modular design.
 
-<h2> 🤳 Connect with me:</h2>
+### [TMU Winter Design](https://github.com/kslubana101/TMUPROJ)
+*Developed for CEN100 – Introduction to Engineering*
+- **Focus:** Technical communication and collaborative engineering design.
 
-[<img align="left" alt="JoshMadakor | YouTube" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/youtube.svg" />][youtube]
-[<img align="left" alt="JoshMadakor | Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
-[<img align="left" alt="JoshMadakor | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
-[<img align="left" alt="JoshMadakor | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
+---
 
-[twitter]: https://twitter.com/joshmadakor
-[youtube]: https://www.youtube.com/c/joshmadakor
-[instagram]: https://www.instagram.com/joshmadakor/
-[linkedin]: https://linkedin.com/in/joshmadakor
+## 🛠️ Technical Skills
 
-<!--
-**joshmadakor1/joshmadakor1** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+- **Languages:** C, Java, C#, Assembly
+- [cite_start]**Concepts:** Data Structures & Algorithms, Object-Oriented Programming, Finite State Machines.
+- [cite_start]**Tools:** Git/GitHub, Linux (Sun Workstations), Unix Shell[cite: 12, 14].
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🤳 Connect with me
+
+<p align="left">
+<a href="https://linkedin.com/in/your-username" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Karandeep | LinkedIn" height="30" width="40" /></a>
+<a href="https://github.com/kslubana101" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg" alt="Karandeep | GitHub" height="30" width="40" /></a>
+</p>
+
+---
+
+## 🔭 Currently Working On
+- 🌱 Learning advanced Data Structures and System Architecture.
+- 👯 Looking to collaborate on open-source Engineering projects.
+- ⚡ **Fun Fact:** I enjoy breaking down complex hardware-software interactions.
