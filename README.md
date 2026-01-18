@@ -43,6 +43,5 @@
 ---
 
 ## 🔭 Currently Working On
-- 🌱 Building expertise in advanced data structures, algorithms, and system architecture.
-- 👯 Seeking opportunities to collaborate on software development and open-source engineering projects.
-- ⚡ **Fun Fact:** I enjoy playing sports.
+- Building expertise in advanced data structures, algorithms, and system architecture.
+- Seeking opportunities to collaborate on software development and open-source engineering projects.
