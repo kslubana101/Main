@@ -5,6 +5,11 @@
 
 ## 👨‍💻 Academic Projects
 
+### [Bookstore Application](https://github.com/kslubana101/Bookstore) 
+- **Language:** Java 
+- **Key Features:** Implemented a Finite State Machine (FSM) with reachability analysis and dynamic state reconfiguration.
+- **Skills:** Graph Theory, Memory Management, and Command-Line Interfaces in C.
+
 ### [State Machine & Algorithms](https://github.com/kslubana101/stateM) 
 - **Language:** C 
 - **Key Features:** Implemented a Finite State Machine (FSM) with reachability analysis and dynamic state reconfiguration.
