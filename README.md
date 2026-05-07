@@ -8,7 +8,7 @@
 ### [Bookstore Application](https://github.com/kslubana101/Bookstore) 
 - **Language:** Java 
 - **Key Features:** Single-window Java Swing GUI, Owner & Customer login system, Book and Customer management, Points & Membership status system, File persistence using books.txt and customers.txt, State Design Pattern implementation, UML-based software design.
-- **Skills:** ava, Java Swing, Object-Oriented Programming (OOP), UML Diagrams, State Design Pattern, File Handling, GUI Development, NetBeans IDE, Team Collaboration.
+- **Skills:** Java, Java Swing, Object-Oriented Programming (OOP), UML Diagrams, State Design Pattern, File Handling, GUI Development, NetBeans IDE, Team Collaboration.
 
 ### [State Machine & Algorithms](https://github.com/kslubana101/stateM) 
 - **Language:** C 
