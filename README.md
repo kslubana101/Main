@@ -4,6 +4,10 @@
 ---
 
 ## 👨‍💻 Academic Projects
+### [Python REST API with SQL Backend](https://github.com/kslubana101/Python-REST-API-with-SQL-Backend/blob/main/README.md)
+- **Language:** Python  
+- **Key Features:**  RESTful API built with Flask, SQL database integration using SQLAlchemy ORM, automated data validation and anomaly detection using Pandas, modular backend architecture (routes, services, database layers), JSON-based request/response system, CRUD operations support, and clean scalable backend design.
+- **Skills:**  Python, Flask, REST APIs, SQLAlchemy, Pandas, SQLite, Object-Oriented Programming (OOP), Backend Development, Database Design, API Development, Git, Software Architecture.
 
 ### [Bookstore Application](https://github.com/kslubana101/Bookstore) 
 - **Language:** Java 
