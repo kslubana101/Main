@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karandeep Lubana — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --border: #222222;
+    --accent: #e8ff00;
+    --accent2: #ff4d00;
+    --text: #f0f0f0;
+    --muted: #666666;
+    --card: #141414;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(120px, 20vw, 280px);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.04);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: -4px;
+    animation: drift 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes drift {
+    from { transform: translate(-50%, -50%) translateX(-20px); }
+    to { transform: translate(-50%, -50%) translateX(20px); }
+  }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+    animation-delay: 0.2s;
+  }
+
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 10vw, 140px);
+    line-height: 0.9;
+    letter-spacing: -2px;
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+    animation-delay: 0.4s;
+  }
+
+  .hero-name span { color: var(--accent); }
+
+  .hero-sub {
+    margin-top: 32px;
+    max-width: 520px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--muted);
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+    animation-delay: 0.6s;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+    animation-delay: 0.8s;
+  }
+
+  .btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #000;
+    font-weight: 500;
+  }
+
+  .btn-primary:hover {
+    background: #fff;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    right: 48px;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: fadeUp 1s ease forwards;
+    opacity: 0;
+    animation-delay: 1.2s;
+  }
+
+  .hero-scroll span {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 1; transform: scaleY(1); }
+    50% { opacity: 0.3; transform: scaleY(0.5); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 120px 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 64px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 200px;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .about-headline span { color: var(--accent); }
+
+  .about-body {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .about-body p + p { margin-top: 20px; }
+
+  .cert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border);
+    padding: 12px 20px;
+    margin-top: 32px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--accent);
+  }
+
+  .cert-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .skill-block {
+    background: var(--card);
+    padding: 32px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .skill-block:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .skill-block-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    transition: all 0.2s;
+  }
+
+  .skill-block:hover .skill-tag {
+    border-color: rgba(232,255,0,0.3);
+    color: var(--text);
+  }
+
+  /* PROJECTS */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 40px;
+    align-items: start;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateX(8px);
+  }
+
+  .project-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--border);
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .project-card:hover .project-number { color: var(--accent); }
+
+  .project-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 8px;
+  }
+
+  .project-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .project-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 600px;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+  }
+
+  .tech-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    background: rgba(232,255,0,0.08);
+    border: 1px solid rgba(232,255,0,0.2);
+    color: var(--accent);
+  }
+
+  .project-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  /* EXPERIENCE */
+  .exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .exp-card {
+    border: 1px solid var(--border);
+    padding: 32px 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    transition: border-color 0.2s;
+  }
+
+  .exp-card:hover { border-color: var(--accent); }
+
+  .exp-company {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .exp-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .exp-bullets li {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .exp-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 10px;
+  }
+
+  .exp-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  /* CONTACT */
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .contact-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -2px;
+  }
+
+  .contact-headline span { color: var(--accent); }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: all 0.2s;
+    group: true;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent);
+    background: rgba(232,255,0,0.04);
+    transform: translateX(8px);
+  }
+
+  .contact-link-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .contact-link-value {
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .contact-link-arrow {
+    font-size: 20px;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .contact-link:hover .contact-link-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: var(--accent);
+  }
+
+  /* GITHUB LINK */
+  .github-bar {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+
+  .github-bar-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--muted);
+  }
+
+  .github-bar-text strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .github-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000;
+    background: var(--accent);
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .github-link:hover { background: #fff; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">KL</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">ENGINEER</div>
+  <div class="hero-tag">// Computer Engineering · Toronto Metropolitan University</div>
+  <h1 class="hero-name">Karandeep<br><span>Lubana</span></h1>
+  <p class="hero-sub">3rd-year Computer Engineering student building cloud infrastructure, backend systems, and hardware solutions. Actively seeking co-op opportunities for Fall 2026.</p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn btn-primary">View Projects</a>
+    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">01 — About</div>
+  <div class="about-grid">
+    <div>
+      <h2 class="about-headline">Building<br>what <span>matters.</span></h2>
+      <div class="cert-badge">
+        <div class="cert-dot"></div>
+        Microsoft Certified: Azure Fundamentals (AZ-900) · Jan 2026
+      </div>
+    </div>
+    <div class="about-body">
+      <p>I'm a Computer Engineering student at Toronto Metropolitan University (Sep 2023 – May 2027) with hands-on experience across cloud infrastructure, backend development, analog circuit design, and embedded systems.</p>
+      <p>My work spans from deploying enterprise-grade Azure virtual networks to designing MOSFET amplifiers and building RESTful APIs — I'm comfortable operating across the full hardware-software stack.</p>
+      <p>I hold a Microsoft Azure Fundamentals (AZ-900) certification and bring professional experience in data analysis, KPI reporting, and structured documentation from my time at Derma Meat Co.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">02 — Skills</div>
+  <div class="skills-grid">
+    <div class="skill-block">
+      <div class="skill-block-title">Languages</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">MATLAB</span>
+        <span class="skill-tag">SPICE</span>
+        <span class="skill-tag">VHDL</span>
+        <span class="skill-tag">PowerShell</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Frameworks & Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Flask</span>
+        <span class="skill-tag">FastAPI</span>
+        <span class="skill-tag">SQLAlchemy</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">KiCad</span>
+        <span class="skill-tag">JSON</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Cloud & Platforms</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Azure (AZ-900)</span>
+        <span class="skill-tag">Cloud Networking</span>
+        <span class="skill-tag">Cloud Security</span>
+        <span class="skill-tag">Azure Monitor</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Tableau</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Hardware</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Oscilloscope</span>
+        <span class="skill-tag">Multimeter</span>
+        <span class="skill-tag">Function Generator</span>
+        <span class="skill-tag">SPICE Simulation</span>
+        <span class="skill-tag">Circuit Design</span>
+        <span class="skill-tag">FPGA</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Microsoft 365</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Teams</span>
+        <span class="skill-tag">SharePoint</span>
+        <span class="skill-tag">OneDrive</span>
+        <span class="skill-tag">Excel</span>
+        <span class="skill-tag">Word</span>
+        <span class="skill-tag">PowerPoint</span>
+        <span class="skill-tag">Copilot</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Professional</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Communication</span>
+        <span class="skill-tag">Project Management</span>
+        <span class="skill-tag">Analytical Thinking</span>
+        <span class="skill-tag">Leadership</span>
+        <span class="skill-tag">Teamwork</span>
+        <span class="skill-tag">Problem-Solving</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">03 — Projects</div>
+
+  <div class="github-bar">
+    <span class="github-bar-text">All source code available on <strong>GitHub</strong> — view repositories, commit history, and documentation.</span>
+    <a href="https://github.com/kslubana101/Main/blob/main/README.md" class="github-link" target="_blank" rel="noopener noreferrer">View GitHub →</a>
+  </div>
+
+  <div class="projects-list">
+
+    <div class="project-card">
+      <div class="project-number">01</div>
+      <div>
+        <div class="project-role">Project Lead</div>
+        <div class="project-title">Python REST API with SQL Backend</div>
+        <p class="project-desc">Designed and built a scalable RESTful API in Python using Flask, implementing full CRUD operations through structured HTTP endpoints. Integrated a relational SQL database via SQLAlchemy with a normalized schema for persistent data storage. Applied Pandas for exploratory data analysis and anomaly detection across structured datasets.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">SQL</span>
+          <span class="tech-tag">SQLAlchemy</span>
+          <span class="tech-tag">Pandas</span>
+          <span class="tech-tag">Git</span>
+        </div>
+      </div>
+      <div class="project-date">Apr – May 2026</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-number">02</div>
+      <div>
+        <div class="project-role">Project Lead</div>
+        <div class="project-title">Azure Virtual Network Deployment</div>
+        <p class="project-desc">Deployed Azure Virtual Machines within a Virtual Network, designing subnet architecture and LAN network topology for a scalable enterprise-grade environment. Defined network security configurations using JSON-based ARM templates with Git version control. Built Azure Monitor dashboards and alerts for infrastructure performance tracking.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Azure</span>
+          <span class="tech-tag">JSON/ARM</span>
+          <span class="tech-tag">Git</span>
+          <span class="tech-tag">Azure Monitor</span>
+          <span class="tech-tag">Cloud Security</span>
+        </div>
+      </div>
+      <div class="project-date">Dec 2025 – Jan 2026</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-number">03</div>
+      <div>
+        <div class="project-role">Tech Lead</div>
+        <div class="project-title">Automated State Machine Design</div>
+        <p class="project-desc">Implemented a configurable state machine in C using graph-based data structures, engineering real-time input handling and persistent system behaviour. Designed state transition logic with reachability analysis using traversal algorithms. Executed structured validation test cases identifying and resolving logic defects through systematic debugging.</p>
+        <div class="project-tech">
+          <span class="tech-tag">C</span>
+          <span class="tech-tag">Graph Structures</span>
+          <span class="tech-tag">Algorithms</span>
+          <span class="tech-tag">Validation Testing</span>
+        </div>
+      </div>
+      <div class="project-date">Dec 2025 – Jan 2026</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-number">04</div>
+      <div>
+        <div class="project-role">Tech Lead</div>
+        <div class="project-title">Bookstore Application</div>
+        <p class="project-desc">Designed a Java-based bookstore application using OOP principles with role-based authentication, inventory management, and purchase workflows through a modular class hierarchy. Engineered a JSON-based persistence layer applying data serialization techniques. Developed and executed structured test cases with root cause defect resolution.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">OOP</span>
+          <span class="tech-tag">JSON</span>
+          <span class="tech-tag">Unit Testing</span>
+        </div>
+      </div>
+      <div class="project-date">Mar – Apr 2026</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-number">05</div>
+      <div>
+        <div class="project-role">Project Lead</div>
+        <div class="project-title">MOSFET Amplifier Design</div>
+        <p class="project-desc">Designed a multi-stage analog voltage amplifier using NMOS/PMOS MOSFETs achieving ≥60 dB gain within a 1 mW power budget. Performed hand calculations for transistor sizing, biasing, and transconductance. Simulated in KiCad using SPICE analysis verifying AC frequency response and −3 dB bandwidth of ≥500 kHz.</p>
+        <div class="project-tech">
+          <span class="tech-tag">KiCad</span>
+          <span class="tech-tag">SPICE</span>
+          <span class="tech-tag">Analog Design</span>
+          <span class="tech-tag">MATLAB</span>
+        </div>
+      </div>
+      <div class="project-date">Mar – Apr 2026</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-number">06</div>
+      <div>
+        <div class="project-role">Team Member</div>
+        <div class="project-title">Electrical Signal Analysis & Testing Lab</div>
+        <p class="project-desc">Measured and analyzed AC waveforms across RC, RL, RLC, and op-amp circuits using function generators and digital oscilloscopes. Investigated frequency response by sweeping input frequencies and documenting discrepancies between theoretical predictions and measured results. Generated structured analytical reports on circuit impedance and component interactions.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Oscilloscope</span>
+          <span class="tech-tag">Circuit Analysis</span>
+          <span class="tech-tag">AC Waveforms</span>
+          <span class="tech-tag">SPICE</span>
+        </div>
+      </div>
+      <div class="project-date">Oct – Nov 2025</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">04 — Experience</div>
+  <div class="exp-list">
+
+    <div class="exp-card">
+      <div>
+        <div class="exp-company">Derma Meat Co.</div>
+        <div class="exp-role">Quality Assurance Technician</div>
+        <ul class="exp-bullets">
+          <li>Coordinated stakeholder communications and provided regular updates to management on operational tasks, reporting progress, and data-related findings</li>
+          <li>Developed and maintained organized documentation and reporting systems, improving data accessibility and workflow efficiency to support day-to-day operational management</li>
+          <li>Validated and maintained Excel-based records by identifying inconsistencies and correcting discrepancies, ensuring data accuracy across reporting systems</li>
+          <li>Extracted and analyzed structured operational datasets to support KPI tracking, generating accurate and timely reports for management decision-making and performance assessment</li>
+        </ul>
+      </div>
+      <div class="exp-date">Jun – Sep 2024<br>Vaughan, ON</div>
+    </div>
+
+    <div class="exp-card">
+      <div>
+        <div class="exp-company">Samsung Distribution Centre</div>
+        <div class="exp-role">Repack Associate</div>
+        <ul class="exp-bullets">
+          <li>Inspected completed packages ensuring accuracy and quality prior to shipment</li>
+          <li>Trained new employees on repacking techniques, safety protocols, and equipment use</li>
+        </ul>
+      </div>
+      <div class="exp-date">Feb – May 2024<br>Milton, ON</div>
+    </div>
+
+    <div class="exp-card">
+      <div>
+        <div class="exp-company">Trans Plus</div>
+        <div class="exp-role">Unload Associate</div>
+        <ul class="exp-bullets">
+          <li>Maintained detailed inventory records ensuring accurate asset management</li>
+          <li>Reviewed incoming shipments catching discrepancies early to support smooth operations</li>
+        </ul>
+      </div>
+      <div class="exp-date">Jun 2023 – Feb 2024<br>Mississauga, ON</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">05 — Contact</div>
+  <div class="contact-inner">
+    <div>
+      <h2 class="contact-headline">Let's<br>work<br><span>together.</span></h2>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:ks.lubana101@gmail.com" class="contact-link">
+        <div>
+          <div class="contact-link-label">Email</div>
+          <div class="contact-link-value">ks.lubana101@gmail.com</div>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://linkedin.com/in/YOUR_LINKEDIN" class="contact-link" target="_blank">
+        <div>
+          <div class="contact-link-label">LinkedIn</div>
+          <div class="contact-link-value">linkedin.com/in/karandeeplubana</div>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://github.com/kslubana101/Main/blob/main/README.md" class="contact-link" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="contact-link-label">GitHub</div>
+          <div class="contact-link-value">github.com/kslubana101</div>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://torontomu.ca" class="contact-link" target="_blank">
+        <div>
+          <div class="contact-link-label">University</div>
+          <div class="contact-link-value">Toronto Metropolitan University · B.Eng 2027</div>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Karandeep Lubana</span>
+  <div class="footer-logo">KL</div>
+  <span>Computer Engineering · TMU</span>
+</footer>
+
+</body>
+</html>
